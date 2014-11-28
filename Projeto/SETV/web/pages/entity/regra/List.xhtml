@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="RegraListForm">
+
+        <p:panel header="#{sETV_BUNDLE.ListRegraTitle}">
+            <p:contextMenu id="RegraDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{sETV_BUNDLE.Create}" onclick="document.getElementById('RegraListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{sETV_BUNDLE.View}" onclick="document.getElementById('RegraListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{sETV_BUNDLE.Edit}" onclick="document.getElementById('RegraListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{sETV_BUNDLE.Delete}" onclick="document.getElementById('RegraListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{sETV_BUNDLE.RegraMenuItem_regraList}" icon="ui-icon-search"  action="#{regraController.navigateRegraList}" disabled="#{empty regraController.selected.regraList}" ajax="false"/>  
+                <p:menuitem value="#{sETV_BUNDLE.RegraMenuItem_regraPaiId}" icon="ui-icon-search"  actionListener="#{regraController.prepareRegraPaiId}" update=":RegraViewForm" oncomplete="PF('RegraViewDialog').show()" disabled="#{empty regraController.selected.regraPaiId}"/>  
+                <p:menuitem value="#{sETV_BUNDLE.RegraMenuItem_habitoVerboId}" icon="ui-icon-search"  actionListener="#{regraController.prepareHabitoVerboId}" update=":HabitoVerboViewForm" oncomplete="PF('HabitoVerboViewDialog').show()" disabled="#{empty regraController.selected.habitoVerboId}"/>  
+                <p:menuitem value="#{sETV_BUNDLE.RegraMenuItem_cursoId}" icon="ui-icon-search"  actionListener="#{regraController.prepareCursoId}" update=":CursoViewForm" oncomplete="PF('CursoViewDialog').show()" disabled="#{empty regraController.selected.cursoId}"/>  
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{regraController.items}"
+                         var="item"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{regraController.selected}">
+
+                <p:ajax event="rowSelect"   update=":RegraListForm:createButton :RegraListForm:viewButton :RegraListForm:editButton :RegraListForm:deleteButton :RegraListForm:RegraDataTableContextMenu" listener="#{regraController.resetParents}"/>
+                <p:ajax event="rowUnselect" update=":RegraListForm:createButton :RegraListForm:viewButton :RegraListForm:editButton :RegraListForm:deleteButton :RegraListForm:RegraDataTableContextMenu" listener="#{regraController.resetParents}"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('RegraListForm:viewButton').click();"/>
+
+                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListRegraTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.negaHabito}" filterBy="#{item.negaHabito}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListRegraTitle_negaHabito}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.negaHabito}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.regraPaiId.id}" filterBy="#{item.regraPaiId.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListRegraTitle_regraPaiId}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.regraPaiId.id}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.habitoVerboId.id}" filterBy="#{item.habitoVerboId.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListRegraTitle_habitoVerboId}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.habitoVerboId.habitoVerboDesc}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.cursoId.id}" filterBy="#{item.cursoId.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListRegraTitle_cursoId}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.cursoId.curso}"/>
+                </p:column>
+
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{sETV_BUNDLE.Create}" actionListener="#{regraController.prepareCreate}" update=":RegraCreateForm" oncomplete="PF('RegraCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{sETV_BUNDLE.View}" update=":RegraViewForm" oncomplete="PF('RegraViewDialog').show()" disabled="#{empty regraController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{sETV_BUNDLE.Edit}" update=":RegraEditForm" oncomplete="PF('RegraEditDialog').show()" disabled="#{empty regraController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{sETV_BUNDLE.Delete}" actionListener="#{regraController.delete}" update=":growl,datalist" disabled="#{empty regraController.selected}">
+                <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/pages/generic/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

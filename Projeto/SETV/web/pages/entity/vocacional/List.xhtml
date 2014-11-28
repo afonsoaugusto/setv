@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    
+    <h:form id="TesteVocacionalForm">
+        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+        <p:panel header="#{sETV_BUNDLE.VocacionalTitle}">
+            <h:panelGroup>
+                <p:selectOneMenu id="alunoId" value="#{vocacionalController.aluno}" required="true" requiredMessage="#{sETV_BUNDLE.VocacionalRequiredMessage_alunoId}" converter="alunoConverter">
+                    <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                    <f:selectItems value="#{alunoController.items}"
+                                   var="alunoIdItem"
+                                   itemValue="#{alunoIdItem}"
+                                   itemLabel="#{alunoIdItem.nome.toString()}"
+                                   />
+
+                </p:selectOneMenu>
+                <p:separator/>
+<!--                <h:outputText value="#{sETV_BUNDLE.ViewAlunoTitle_cursoId}"/>
+                <h:outputText value="#{alunoIdItem.nome}"/>-->
+            </h:panelGroup>
+            <p:separator/>
+            <p:commandButton id="createAvaliacao" actionListener="#{vocacionalController.createAvaliacao}" value="Avaliação"/>
+        </p:panel>
+        <ui:include src="/pages/generic/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

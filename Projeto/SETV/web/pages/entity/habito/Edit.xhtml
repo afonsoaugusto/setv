@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="HabitoEditDlg" widgetVar="HabitoEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{sETV_BUNDLE.EditHabitoTitle}" closeOnEscape="true">
+
+            <h:form id="HabitoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{habitoController.selected != null}">
+
+
+                        <h:outputLabel value="#{sETV_BUNDLE.EditHabitoLabel_id}" for="id" />
+                        <h:panelGroup>
+                            <h:outputText id="id" value="#{habitoController.selected.id}" />
+                            <p:tooltip for="id" value="#{habitoController.getComponentMessages('id', sETV_BUNDLE.EditHabitoHelpText_id)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditHabitoLabel_habito}" for="habito" />
+                        <h:panelGroup>
+                            <p:inputText id="habito" value="#{habitoController.selected.habito}" title="#{sETV_BUNDLE.EditHabitoTitle_habito}" required="true" requiredMessage="#{sETV_BUNDLE.EditHabitoRequiredMessage_habito}" size="200" maxlength="200"/>
+                            <p:tooltip for="habito" value="#{habitoController.getComponentMessages('habito', sETV_BUNDLE.EditHabitoHelpText_habito)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{habitoController.save}" value="#{sETV_BUNDLE.Save}" update="display,:HabitoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('HabitoEditDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('HabitoEditDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

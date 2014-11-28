@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5D31E5CA-5E62-1270-6988-C1292DCA22D8" name="HABITO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>HABITO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="BEA165F9-9EB2-8A97-8115-209C170D1734">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>HABITO</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HABITO" id="0A98649C-AC45-4E0E-AB3F-75489EDE9B40">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>HABITO</sourceObjSchema>
+<sourceObjName>HABITO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D95EB4A5-0584-EADC-9B53-A90FDC91C314" name="PK_HABITO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>PK_HABITO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BEA165F9-9EB2-8A97-8115-209C170D1734"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A89A2487-2BD2-1075-B8FF-5CE520F4C15B" name="UK_HABITO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>UK_HABITO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A98649C-AC45-4E0E-AB3F-75489EDE9B40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CFBC9903-53E5-D140-7BDE-DEE2DA29DCE6" name="PK_HABITO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>PK_HABITO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BEA165F9-9EB2-8A97-8115-209C170D1734"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5249DD71-AD08-27BA-9F01-1B8112D8CD01" name="UK_HABITO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>UK_HABITO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A98649C-AC45-4E0E-AB3F-75489EDE9B40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

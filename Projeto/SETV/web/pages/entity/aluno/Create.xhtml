@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AlunoCreateDlg" widgetVar="AlunoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{sETV_BUNDLE.CreateAlunoTitle}" closeOnEscape="true">
+
+            <h:form id="AlunoCreateForm">
+
+                <h:panelGroup id="display" rendered="#{alunoController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateAlunoLabel_cpf}" for="cpf" />
+                        <h:panelGroup>
+                            <p:inputText id="cpf" value="#{alunoController.selected.cpf}" title="#{sETV_BUNDLE.CreateAlunoTitle_cpf}" required="true" requiredMessage="#{sETV_BUNDLE.CreateAlunoRequiredMessage_cpf}"/>
+                            <p:tooltip for="cpf" value="#{alunoController.getComponentMessages('cpf', sETV_BUNDLE.CreateAlunoHelpText_cpf)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateAlunoLabel_nome}" for="nome" />
+                        <h:panelGroup>
+                            <p:inputText id="nome" value="#{alunoController.selected.nome}" title="#{sETV_BUNDLE.CreateAlunoTitle_nome}" required="true" requiredMessage="#{sETV_BUNDLE.CreateAlunoRequiredMessage_nome}" size="100" maxlength="100"/>
+                            <p:tooltip for="nome" value="#{alunoController.getComponentMessages('nome', sETV_BUNDLE.CreateAlunoHelpText_nome)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateAlunoLabel_anoNascimento}" for="anoNascimento" />
+                        <h:panelGroup>
+                            <p:calendar id="anoNascimento" pattern="MM/dd/yyyy" value="#{alunoController.selected.anoNascimento}" title="#{sETV_BUNDLE.CreateAlunoTitle_anoNascimento}"  showOn="button"/>
+                            <p:tooltip for="anoNascimento" value="#{alunoController.getComponentMessages('anoNascimento', sETV_BUNDLE.CreateAlunoHelpText_anoNascimento)}"/>
+                        </h:panelGroup>
+                        
+                <!--    <p:outputLabel value="#{sETV_BUNDLE.CreateAlunoLabel_cursoId}" for="cursoId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="cursoId" value="#{alunoController.selected.cursoId}"  converter="cursoConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{cursoController.items}"
+                                               var="cursoIdItem"
+                                               itemValue="#{cursoIdItem}"
+                                               itemLabel="#{cursoIdItem.id.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="cursoId" value="#{alunoController.getComponentMessages('cursoId', sETV_BUNDLE.CreateAlunoHelpText_cursoId)}"/>
+                        </h:panelGroup>-->
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{alunoController.saveNew}" value="#{sETV_BUNDLE.Save}" update="display,:AlunoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('AlunoCreateDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('AlunoCreateDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

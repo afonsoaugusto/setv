@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="VerboEditDlg" widgetVar="VerboEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{sETV_BUNDLE.EditVerboTitle}" closeOnEscape="true">
+
+            <h:form id="VerboEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{verboController.selected != null}">
+
+
+                        <h:outputLabel value="#{sETV_BUNDLE.EditVerboLabel_id}" for="id" />
+                        <h:panelGroup>
+                            <h:outputText id="id" value="#{verboController.selected.id}" />
+                            <p:tooltip for="id" value="#{verboController.getComponentMessages('id', sETV_BUNDLE.EditVerboHelpText_id)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditVerboLabel_verbo}" for="verbo" />
+                        <h:panelGroup>
+                            <p:inputText id="verbo" value="#{verboController.selected.verbo}" title="#{sETV_BUNDLE.EditVerboTitle_verbo}" required="true" requiredMessage="#{sETV_BUNDLE.EditVerboRequiredMessage_verbo}" size="100" maxlength="100"/>
+                            <p:tooltip for="verbo" value="#{verboController.getComponentMessages('verbo', sETV_BUNDLE.EditVerboHelpText_verbo)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{verboController.save}" value="#{sETV_BUNDLE.Save}" update="display,:VerboListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('VerboEditDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('VerboEditDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <application>
+        <resource-bundle>
+            <base-name>/SETV_BUNDLE</base-name>
+            <var>sETV_BUNDLE</var>
+        </resource-bundle>
+    </application>
+    <managed-bean>
+        <managed-bean-name>guestPreferences</managed-bean-name>
+        <managed-bean-class>br.com.setv.util.theme.GuestPreferences</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>themeSwitcherBean</managed-bean-name>
+        <managed-bean-class>br.com.setv.util.theme.ThemeSwitcherBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+        <managed-property>
+            <property-name>gp</property-name>
+            <value>#{guestPreferences}</value>
+        </managed-property>
+    </managed-bean>
+<!--    <managed-bean>
+        <managed-bean-name>vocacionalController</managed-bean-name>
+        <managed-bean-class>br.com.setv.vocacional.VocacionalController</managed-bean-class>
+        <managed-bean-scope>viewScoped</managed-bean-scope>
+    </managed-bean>-->
+</faces-config>

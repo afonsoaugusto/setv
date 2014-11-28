@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="AlunoEditDlg" widgetVar="AlunoEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{sETV_BUNDLE.EditAlunoTitle}" closeOnEscape="true">
+
+            <h:form id="AlunoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{alunoController.selected != null}">
+
+
+                        <h:outputLabel value="#{sETV_BUNDLE.EditAlunoLabel_id}" for="id" />
+                        <h:panelGroup>
+                            <h:outputText id="id" value="#{alunoController.selected.id}" />
+                            <p:tooltip for="id" value="#{alunoController.getComponentMessages('id', sETV_BUNDLE.EditAlunoHelpText_id)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditAlunoLabel_cpf}" for="cpf" />
+                        <h:panelGroup>
+                            <p:inputText id="cpf" value="#{alunoController.selected.cpf}" title="#{sETV_BUNDLE.EditAlunoTitle_cpf}" required="true" requiredMessage="#{sETV_BUNDLE.EditAlunoRequiredMessage_cpf}"/>
+                            <p:tooltip for="cpf" value="#{alunoController.getComponentMessages('cpf', sETV_BUNDLE.EditAlunoHelpText_cpf)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditAlunoLabel_nome}" for="nome" />
+                        <h:panelGroup>
+                            <p:inputText id="nome" value="#{alunoController.selected.nome}" title="#{sETV_BUNDLE.EditAlunoTitle_nome}" required="true" requiredMessage="#{sETV_BUNDLE.EditAlunoRequiredMessage_nome}" size="100" maxlength="100"/>
+                            <p:tooltip for="nome" value="#{alunoController.getComponentMessages('nome', sETV_BUNDLE.EditAlunoHelpText_nome)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditAlunoLabel_anoNascimento}" for="anoNascimento" />
+                        <h:panelGroup>
+                            <p:calendar id="anoNascimento" pattern="MM/dd/yyyy" value="#{alunoController.selected.anoNascimento}" title="#{sETV_BUNDLE.EditAlunoTitle_anoNascimento}"  showOn="button"/>
+                            <p:tooltip for="anoNascimento" value="#{alunoController.getComponentMessages('anoNascimento', sETV_BUNDLE.EditAlunoHelpText_anoNascimento)}"/>
+                        </h:panelGroup>
+                        
+                        <h:outputText value="#{sETV_BUNDLE.ViewAlunoTitle_cursoId}"/>
+                        <h:outputText value="#{alunoController.selected.cursoId.curso}"/>
+                        
+<!--                        <p:outputLabel value="#{sETV_BUNDLE.EditAlunoLabel_cursoId}" for="cursoId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="cursoId" value="#{alunoController.selected.cursoId}"  converter="cursoConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{cursoController.items}"
+                                               var="cursoIdItem"
+                                               itemValue="#{cursoIdItem}"
+                                               itemLabel="#{cursoIdItem.id.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="cursoId" value="#{alunoController.getComponentMessages('cursoId', sETV_BUNDLE.EditAlunoHelpText_cursoId)}"/>
+                        </h:panelGroup>-->
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{alunoController.save}" value="#{sETV_BUNDLE.Save}" update="display,:AlunoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('AlunoEditDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('AlunoEditDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

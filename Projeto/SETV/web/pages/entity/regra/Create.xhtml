@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RegraCreateDlg" widgetVar="RegraCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{sETV_BUNDLE.CreateRegraTitle}" closeOnEscape="true">
+
+            <h:form id="RegraCreateForm">
+
+                <h:panelGroup id="display" rendered="#{regraController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateRegraLabel_negaHabito}" for="negaHabito" />
+                        <h:panelGroup>
+                            <p:inputText id="negaHabito" value="#{regraController.selected.negaHabito}" title="#{sETV_BUNDLE.CreateRegraTitle_negaHabito}" required="true" requiredMessage="#{sETV_BUNDLE.CreateRegraRequiredMessage_negaHabito}"/>
+                            <p:tooltip for="negaHabito" value="#{regraController.getComponentMessages('negaHabito', sETV_BUNDLE.CreateRegraHelpText_negaHabito)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateRegraLabel_regraPaiId}" for="regraPaiId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="regraPaiId" value="#{regraController.selected.regraPaiId}"  converter="regraConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{regraController.items}"
+                                               var="regraPaiIdItem"
+                                               itemValue="#{regraPaiIdItem}"
+                                               itemLabel="#{regraPaiIdItem.id.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="regraPaiId" value="#{regraController.getComponentMessages('regraPaiId', sETV_BUNDLE.CreateRegraHelpText_regraPaiId)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateRegraLabel_habitoVerboId}" for="habitoVerboId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="habitoVerboId" value="#{regraController.selected.habitoVerboId}" required="true" requiredMessage="#{sETV_BUNDLE.CreateRegraRequiredMessage_habitoVerboId}" converter="habitoVerboConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{habitoVerboController.items}"
+                                               var="habitoVerboIdItem"
+                                               itemValue="#{habitoVerboIdItem}"
+                                               itemLabel="#{habitoVerboIdItem.habitoVerboDesc.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="habitoVerboId" value="#{regraController.getComponentMessages('habitoVerboId', sETV_BUNDLE.CreateRegraHelpText_habitoVerboId)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateRegraLabel_cursoId}" for="cursoId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="cursoId" value="#{regraController.selected.cursoId}" required="true" requiredMessage="#{sETV_BUNDLE.CreateRegraRequiredMessage_cursoId}" converter="cursoConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{cursoController.items}"
+                                               var="cursoIdItem"
+                                               itemValue="#{cursoIdItem}"
+                                               itemLabel="#{cursoIdItem.curso.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="cursoId" value="#{regraController.getComponentMessages('cursoId', sETV_BUNDLE.CreateRegraHelpText_cursoId)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{regraController.saveNew}" value="#{sETV_BUNDLE.Save}" update="display,:RegraListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('RegraCreateDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('RegraCreateDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

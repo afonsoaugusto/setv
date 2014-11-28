@@ -1,0 +1,147 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="791B1918-BDB4-054E-324C-CD85A9AC3A7B" name="FATO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>FATO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="6DF2653B-2D19-6EE4-C9CB-9C503019569C">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>FATO</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HABITO_VERBO_ID" id="F02960ED-9F85-856A-EB9B-351764B9D24F">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>FATO</sourceObjSchema>
+<sourceObjName>HABITO_VERBO_ID</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>A5905FF1-DA8C-F680-958F-56A05F161548</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0705ED07-3A95-EE42-9DF1-15DB16444BC8" referredColumn="A5905FF1-DA8C-F680-958F-56A05F161548"/>
+</associations>
+</Column>
+<Column name="ALUNO_ID" id="FD0F09BE-0386-BF28-E307-38502AE071C8">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>FATO</sourceObjSchema>
+<sourceObjName>ALUNO_ID</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>F483F3EA-2CE5-2685-D445-01F7EDCAD61A</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6A02A927-2E36-1634-DBA9-9D97350C2559" referredColumn="F483F3EA-2CE5-2685-D445-01F7EDCAD61A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="366F6A83-4712-9CAF-1927-9FEFC445BD2C" name="PK_FATO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>PK_FATO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6DF2653B-2D19-6EE4-C9CB-9C503019569C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E98A25DE-F0E0-E99F-F6E2-5A78DE7370B7" name="UK_FATO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>UK_FATO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F02960ED-9F85-856A-EB9B-351764B9D24F"/>
+<colUsage columnID="FD0F09BE-0386-BF28-E307-38502AE071C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="068880C0-C7E2-9EC9-A68E-300004CC716C" name="PK_FATO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>PK_FATO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6DF2653B-2D19-6EE4-C9CB-9C503019569C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4A06811A-4833-5747-1D2A-26C6699F6C66" name="UK_FATO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>UK_FATO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F02960ED-9F85-856A-EB9B-351764B9D24F"/>
+<colUsage columnID="FD0F09BE-0386-BF28-E307-38502AE071C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C530C599-D727-59C8-60CE-0DFEFEA8B4D1" name="FK_FATO_ALUNO">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FD0F09BE-0386-BF28-E307-38502AE071C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8DCFD043-E8B9-12B4-EC6E-6D01582F45F4" name="FK_FATO_HABITO_VERBO">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F02960ED-9F85-856A-EB9B-351764B9D24F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

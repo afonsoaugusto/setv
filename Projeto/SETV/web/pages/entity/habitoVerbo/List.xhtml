@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="HabitoVerboListForm">
+
+        <p:panel header="#{sETV_BUNDLE.ListHabitoVerboTitle}">
+            <p:contextMenu id="HabitoVerboDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{sETV_BUNDLE.Create}" onclick="document.getElementById('HabitoVerboListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{sETV_BUNDLE.View}" onclick="document.getElementById('HabitoVerboListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{sETV_BUNDLE.Edit}" onclick="document.getElementById('HabitoVerboListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{sETV_BUNDLE.Delete}" onclick="document.getElementById('HabitoVerboListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{sETV_BUNDLE.HabitoVerboMenuItem_fatoList}" icon="ui-icon-search"  action="#{habitoVerboController.navigateFatoList}" disabled="#{empty habitoVerboController.selected.fatoList}" ajax="false"/>  
+                <p:menuitem value="#{sETV_BUNDLE.HabitoVerboMenuItem_verboId}" icon="ui-icon-search"  actionListener="#{habitoVerboController.prepareVerboId}" update=":VerboViewForm" oncomplete="PF('VerboViewDialog').show()" disabled="#{empty habitoVerboController.selected.verboId}"/>  
+                <p:menuitem value="#{sETV_BUNDLE.HabitoVerboMenuItem_habitoId}" icon="ui-icon-search"  actionListener="#{habitoVerboController.prepareHabitoId}" update=":HabitoViewForm" oncomplete="PF('HabitoViewDialog').show()" disabled="#{empty habitoVerboController.selected.habitoId}"/>  
+                <p:menuitem value="#{sETV_BUNDLE.HabitoVerboMenuItem_regraList}" icon="ui-icon-search"  action="#{habitoVerboController.navigateRegraList}" disabled="#{empty habitoVerboController.selected.regraList}" ajax="false"/>  
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{habitoVerboController.items}"
+                         var="item"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{habitoVerboController.selected}">
+
+                <p:ajax event="rowSelect"   update=":HabitoVerboListForm:createButton :HabitoVerboListForm:viewButton :HabitoVerboListForm:editButton :HabitoVerboListForm:deleteButton :HabitoVerboListForm:HabitoVerboDataTableContextMenu" listener="#{habitoVerboController.resetParents}"/>
+                <p:ajax event="rowUnselect" update=":HabitoVerboListForm:createButton :HabitoVerboListForm:viewButton :HabitoVerboListForm:editButton :HabitoVerboListForm:deleteButton :HabitoVerboListForm:HabitoVerboDataTableContextMenu" listener="#{habitoVerboController.resetParents}"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('HabitoVerboListForm:viewButton').click();"/>
+
+<!--                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListHabitoVerboTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>-->
+
+
+                <p:column sortBy="#{item.verboId.verbo}" filterBy="#{item.verboId.verbo}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListHabitoVerboTitle_verboId}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.verboId.verbo}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.habitoId.habito}" filterBy="#{item.habitoId.habito}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListHabitoVerboTitle_habitoId}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.habitoId.habito}"/>
+                </p:column>
+
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{sETV_BUNDLE.Create}" actionListener="#{habitoVerboController.prepareCreate}" update=":HabitoVerboCreateForm" oncomplete="PF('HabitoVerboCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{sETV_BUNDLE.View}" update=":HabitoVerboViewForm" oncomplete="PF('HabitoVerboViewDialog').show()" disabled="#{empty habitoVerboController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{sETV_BUNDLE.Edit}" update=":HabitoVerboEditForm" oncomplete="PF('HabitoVerboEditDialog').show()" disabled="#{empty habitoVerboController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{sETV_BUNDLE.Delete}" actionListener="#{habitoVerboController.delete}" update=":growl,datalist" disabled="#{empty habitoVerboController.selected}">
+                <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/pages/generic/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

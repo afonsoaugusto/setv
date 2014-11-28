@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HabitoCreateDlg" widgetVar="HabitoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{sETV_BUNDLE.CreateHabitoTitle}" closeOnEscape="true">
+
+            <h:form id="HabitoCreateForm">
+
+                <h:panelGroup id="display" rendered="#{habitoController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateHabitoLabel_habito}" for="habito" />
+                        <h:panelGroup>
+                            <p:inputText id="habito" value="#{habitoController.selected.habito}" title="#{sETV_BUNDLE.CreateHabitoTitle_habito}" required="true" requiredMessage="#{sETV_BUNDLE.CreateHabitoRequiredMessage_habito}" size="200" maxlength="200"/>
+                            <p:tooltip for="habito" value="#{habitoController.getComponentMessages('habito', sETV_BUNDLE.CreateHabitoHelpText_habito)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{habitoController.saveNew}" value="#{sETV_BUNDLE.Save}" update="display,:HabitoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('HabitoCreateDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('HabitoCreateDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

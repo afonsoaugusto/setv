@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>web/pages/entity/aluno/Create.xhtml</url>
+            <bookmark id="1">
+                <name/>
+                <line>35</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/test/br/com/setv/vocacional/TesteSimples.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/bean/session/AbstractFacade.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/converter/AlunoConverter.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/web/pages/entity/aluno/Edit.xhtml</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/bean/session/HabitoFacade.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/bean/backing/VerboController.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/vocacional/PrologService.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/web/pages/generic/appmenu.xhtml</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/vocacional/VocacionalController.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/web/pages/entity/fato/Create.xhtml</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/entidades/Curso.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/web/pages/entity/vocacional/View.xhtml</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/SETV_BUNDLE.properties</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/web/pages/entity/vocacional/List.xhtml</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/web/pages/entity/curso/List.xhtml</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/bean/backing/AbstractController.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/web/pages/generic/template.xhtml</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/bean/backing/CursoController.java</file>
+            <file>file:/C:/Users/Afonso/Dropbox/Faculdade/IA/SETV/src/java/br/com/setv/converter/CursoConverter.java</file>
+        </group>
+    </open-files>
+</project-private>

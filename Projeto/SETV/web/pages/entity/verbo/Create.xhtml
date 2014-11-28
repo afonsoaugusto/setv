@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VerboCreateDlg" widgetVar="VerboCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{sETV_BUNDLE.CreateVerboTitle}" closeOnEscape="true">
+
+            <h:form id="VerboCreateForm">
+
+                <h:panelGroup id="display" rendered="#{verboController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateVerboLabel_verbo}" for="verbo" />
+                        <h:panelGroup>
+                            <p:inputText id="verbo" value="#{verboController.selected.verbo}" title="#{sETV_BUNDLE.CreateVerboTitle_verbo}" required="true" requiredMessage="#{sETV_BUNDLE.CreateVerboRequiredMessage_verbo}" size="100" maxlength="100"/>
+                            <p:tooltip for="verbo" value="#{verboController.getComponentMessages('verbo', sETV_BUNDLE.CreateVerboHelpText_verbo)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{verboController.saveNew}" value="#{sETV_BUNDLE.Save}" update="display,:VerboListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('VerboCreateDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('VerboCreateDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

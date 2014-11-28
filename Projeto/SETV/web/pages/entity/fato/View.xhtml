@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FatoViewDlg" widgetVar="FatoViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{sETV_BUNDLE.ViewFatoTitle}" closeOnEscape="true">
+
+            <h:form id="FatoViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{fatoController.selected != null}">
+
+                        <h:outputText value="#{sETV_BUNDLE.ViewFatoLabel_id}"/>
+                        <h:outputText value="#{fatoController.selected.id}" title="#{sETV_BUNDLE.ViewFatoTitle_id}"/>
+
+                        <h:outputText value="#{sETV_BUNDLE.ViewFatoLabel_habitoVerboId}"/>
+                        <h:outputText value="#{fatoController.selected.habitoVerboId.habitoVerboDesc}"/>
+
+                        <h:outputText value="#{sETV_BUNDLE.ViewFatoLabel_alunoId}"/>
+                        <h:outputText value="#{fatoController.selected.alunoId.nome}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{sETV_BUNDLE.Close}" onclick="PF('FatoViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

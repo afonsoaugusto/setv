@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.storage.oracle.v11g.StorageDesignOraclev11g>
+   <object objectType="TSpace" objectID="551D5D92-78DE-C307-63F2-C310BD01548D" name="SYSAUX" seqName="seg_0"/>
+   <object objectType="TSpace" objectID="BB748CF0-F726-F362-AD32-C1E430B988EB" name="SYSTEM" seqName="seg_0"/>
+   <object objectType="TSpace" objectID="411081A5-4264-6281-A7DD-D09F37D88380" name="USERS" seqName="seg_0"/>
+   <object objectType="TmpTSpace" objectID="AC4FA63C-788B-A7D7-71E9-47514D2105F3" name="TEMP" seqName="seg_0"/>
+   <object objectType="UTSpace" objectID="54C95D41-A014-61C8-7716-FB83B24ED102" name="UNDOTBS1" seqName="seg_0"/>
+   <object objectType="User" objectID="MDSYS" name="MDSYS" seqName="seg_0"/>
+   <object objectType="User" objectID="PUBLIC" name="PUBLIC" seqName="seg_0"/>
+   <object objectType="User" objectID="661CF81E-3910-E06C-C58A-4E9845C5EBDD" name="REGRA" seqName="seg_0"/>
+   <object objectType="User" objectID="328F04EB-1294-4ED8-DAF5-F6853703A896" name="SYSTEM" seqName="seg_0"/>
+   <object objectType="Directory" objectID="037815F5-B80F-1D06-2F9A-06BD515C768A" name="LOG_DATA" seqName="seg_0"/>
+   <object objectType="Directory" objectID="923D0BFD-2511-48CA-59AA-B0E44B492671" name="PL_DATA" seqName="seg_0"/>
+   <object objectType="SType" objectID="47E390DE-0671-C4B1-8428-0F45CBEE18F8" name="SDO_GEOMETRY" seqName="seg_0"/>
+   <object objectType="SType" objectID="F72C39E0-D1CA-8821-2AD7-A1E95A37D3D1" name="XMLTYPE" seqName="seg_0"/>
+   <object objectType="Package" objectID="3DE10463-73DC-4DC6-EF70-8D29A36E751A" name="REGRA_PKG" seqName="seg_0"/>
+   <object objectType="Table" objectID="2AC9F294-B56A-00EE-9284-9E5BBC8816AB" name="VERBO" seqName="seg_0"/>
+   <object objectType="Table" objectID="346A3AD0-FBA6-476B-F0A7-5E1F91F23BCF" name="HABITO_VERBO" seqName="seg_0"/>
+   <object objectType="Table" objectID="5D31E5CA-5E62-1270-6988-C1292DCA22D8" name="HABITO" seqName="seg_0"/>
+   <object objectType="Table" objectID="791B1918-BDB4-054E-324C-CD85A9AC3A7B" name="FATO" seqName="seg_0"/>
+   <object objectType="Table" objectID="A624E73D-A282-3F4A-E04C-42F9353944C6" name="CURSO" seqName="seg_0"/>
+   <object objectType="Table" objectID="BE6BBDA5-6E90-09A3-349E-D11D1C99D4AB" name="ALUNO" seqName="seg_0"/>
+   <object objectType="Table" objectID="EECC13B4-0FB3-DFC0-F0CE-1CDAE0148CE0" name="REGRA" seqName="seg_0"/>
+   <object objectType="Segment" objectID="D2581EFC-2B97-BAD6-7A88-E4B4F192D0A2" name="Storage1" seqName="seg_0"/>
+   <object objectType="Segment" objectID="0A379A7C-0F73-B966-0B70-740103903EC0" name="Storage8" seqName="seg_0"/>
+   <object objectType="Sequence" objectID="CC03D5F4-580B-F297-3A7C-CDFB0B9ED321" name="SEQ_ALUNO_ID" seqName="seg_0"/>
+   <object objectType="Sequence" objectID="4E809E55-D8B5-907D-8763-54EE2DD58420" name="SEQ_CURSO_ID" seqName="seg_0"/>
+   <object objectType="Sequence" objectID="BDFE6995-CD3A-76F2-4276-A65470171AF3" name="SEQ_FATO_ID" seqName="seg_0"/>
+   <object objectType="Sequence" objectID="64685DBB-9D5E-2538-AF21-784D3B56FB9E" name="SEQ_HABITO_ID" seqName="seg_0"/>
+   <object objectType="Sequence" objectID="E7530DD1-EE8E-C6D9-1876-7F15C5475DDD" name="SEQ_HABITO_VERBO_ID" seqName="seg_0"/>
+   <object objectType="Sequence" objectID="4EE4E42C-4E97-63F5-CF40-F77D81F7EAD1" name="SEQ_REGRA_ID" seqName="seg_0"/>
+   <object objectType="Sequence" objectID="E8415255-77C9-30E9-37F3-28F6A2F3CAD3" name="SEQ_VERBO_ID" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.storage.oracle.v11g.StorageDesignOraclev11g>

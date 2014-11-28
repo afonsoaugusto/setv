@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="FatoEditDlg" widgetVar="FatoEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{sETV_BUNDLE.EditFatoTitle}" closeOnEscape="true">
+
+            <h:form id="FatoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{fatoController.selected != null}">
+
+
+                        <h:outputLabel value="#{sETV_BUNDLE.EditFatoLabel_id}" for="id" />
+                        <h:panelGroup>
+                            <h:outputText id="id" value="#{fatoController.selected.id}" />
+                            <p:tooltip for="id" value="#{fatoController.getComponentMessages('id', sETV_BUNDLE.EditFatoHelpText_id)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditFatoLabel_habitoVerboId}" for="habitoVerboId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="habitoVerboId" value="#{fatoController.selected.habitoVerboId}" required="true" requiredMessage="#{sETV_BUNDLE.EditFatoRequiredMessage_habitoVerboId}" converter="habitoVerboConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{habitoVerboController.items}"
+                                               var="habitoVerboIdItem"
+                                               itemValue="#{habitoVerboIdItem}"
+                                               itemLabel="#{habitoVerboIdItem.habitoVerboDesc.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="habitoVerboId" value="#{fatoController.getComponentMessages('habitoVerboId', sETV_BUNDLE.EditFatoHelpText_habitoVerboId)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditFatoLabel_alunoId}" for="alunoId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="alunoId" value="#{fatoController.selected.alunoId}" required="true" requiredMessage="#{sETV_BUNDLE.EditFatoRequiredMessage_alunoId}" converter="alunoConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{alunoController.items}"
+                                               var="alunoIdItem"
+                                               itemValue="#{alunoIdItem}"
+                                               itemLabel="#{alunoIdItem.nome.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="alunoId" value="#{fatoController.getComponentMessages('alunoId', sETV_BUNDLE.EditFatoHelpText_alunoId)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fatoController.save}" value="#{sETV_BUNDLE.Save}" update="display,:FatoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('FatoEditDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('FatoEditDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CursoCreateDlg" widgetVar="CursoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{sETV_BUNDLE.CreateCursoTitle}" closeOnEscape="true">
+
+            <h:form id="CursoCreateForm">
+
+                <h:panelGroup id="display" rendered="#{cursoController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{sETV_BUNDLE.CreateCursoLabel_curso}" for="curso" />
+                        <h:panelGroup>
+                            <p:inputText id="curso" value="#{cursoController.selected.curso}" title="#{sETV_BUNDLE.CreateCursoTitle_curso}" required="true" requiredMessage="#{sETV_BUNDLE.CreateCursoRequiredMessage_curso}" size="200" maxlength="200"/>
+                            <p:tooltip for="curso" value="#{cursoController.getComponentMessages('curso', sETV_BUNDLE.CreateCursoHelpText_curso)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cursoController.saveNew}" value="#{sETV_BUNDLE.Save}" update="display,:CursoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('CursoCreateDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('CursoCreateDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

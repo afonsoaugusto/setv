@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="HabitoVerboEditDlg" widgetVar="HabitoVerboEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{sETV_BUNDLE.EditHabitoVerboTitle}" closeOnEscape="true">
+
+            <h:form id="HabitoVerboEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{habitoVerboController.selected != null}">
+
+
+                        <h:outputLabel value="#{sETV_BUNDLE.EditHabitoVerboLabel_id}" for="id" />
+                        <h:panelGroup>
+                            <h:outputText id="id" value="#{habitoVerboController.selected.id}" />
+                            <p:tooltip for="id" value="#{habitoVerboController.getComponentMessages('id', sETV_BUNDLE.EditHabitoVerboHelpText_id)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditHabitoVerboLabel_verboId}" for="verboId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="verboId" value="#{habitoVerboController.selected.verboId}" required="true" requiredMessage="#{sETV_BUNDLE.EditHabitoVerboRequiredMessage_verboId}" converter="verboConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{verboController.items}"
+                                               var="verboIdItem"
+                                               itemValue="#{verboIdItem}"
+                                               itemLabel="#{verboIdItem.verbo.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="verboId" value="#{habitoVerboController.getComponentMessages('verboId', sETV_BUNDLE.EditHabitoVerboHelpText_verboId)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditHabitoVerboLabel_habitoId}" for="habitoId" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="habitoId" value="#{habitoVerboController.selected.habitoId}" required="true" requiredMessage="#{sETV_BUNDLE.EditHabitoVerboRequiredMessage_habitoId}" converter="habitoConverter">
+                                <f:selectItem itemLabel="#{sETV_BUNDLE.SelectOneMessage}"/>
+                                <f:selectItems value="#{habitoController.items}"
+                                               var="habitoIdItem"
+                                               itemValue="#{habitoIdItem}"
+                                               itemLabel="#{habitoIdItem.habito.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="habitoId" value="#{habitoVerboController.getComponentMessages('habitoId', sETV_BUNDLE.EditHabitoVerboHelpText_habitoId)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{habitoVerboController.save}" value="#{sETV_BUNDLE.Save}" update="display,:HabitoVerboListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('HabitoVerboEditDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('HabitoVerboEditDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

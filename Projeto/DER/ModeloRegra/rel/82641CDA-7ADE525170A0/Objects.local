@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="SchemaObject" objectID="CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55" name="REGRA" seqName="seg_0"/>
+   <object objectType="Table" objectID="BE6BBDA5-6E90-09A3-349E-D11D1C99D4AB" name="ALUNO" seqName="seg_0"/>
+   <object objectType="Table" objectID="A624E73D-A282-3F4A-E04C-42F9353944C6" name="CURSO" seqName="seg_0"/>
+   <object objectType="Table" objectID="791B1918-BDB4-054E-324C-CD85A9AC3A7B" name="FATO" seqName="seg_0"/>
+   <object objectType="Table" objectID="5D31E5CA-5E62-1270-6988-C1292DCA22D8" name="HABITO" seqName="seg_0"/>
+   <object objectType="Table" objectID="346A3AD0-FBA6-476B-F0A7-5E1F91F23BCF" name="HABITO_VERBO" seqName="seg_0"/>
+   <object objectType="Table" objectID="EECC13B4-0FB3-DFC0-F0CE-1CDAE0148CE0" name="REGRA" seqName="seg_0"/>
+   <object objectType="Table" objectID="2AC9F294-B56A-00EE-9284-9E5BBC8816AB" name="VERBO" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="EBDA4411-3E0A-8FD1-6F1B-1ACC7B5D4DAF" name="FK_ALUNO_CURSO" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="6A02A927-2E36-1634-DBA9-9D97350C2559" name="FK_FATO_ALUNO" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="0705ED07-3A95-EE42-9DF1-15DB16444BC8" name="FK_FATO_HABITO_VERBO" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="5204AFDA-05D5-6813-AC01-F0C8FC26469F" name="FK_HABITO_VERBO_H" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="48575CA0-C13F-4CA6-8B90-773C978630D6" name="FK_HABITO_VERBO_V" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="E95F1A1E-DEC2-125E-9556-7642E1771786" name="FK_REGRA_CURSO" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="4C9AB4AC-2FF6-1D25-DEDC-3F17F3F887E0" name="FK_REGRA_HABITO_VERBO" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="36C76236-B213-FD25-2575-53CD30EEDDE3" name="FK_REGRA_PAI" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

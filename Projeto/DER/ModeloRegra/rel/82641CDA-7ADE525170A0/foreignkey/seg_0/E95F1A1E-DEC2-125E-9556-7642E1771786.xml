@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E95F1A1E-DEC2-125E-9556-7642E1771786" name="FK_REGRA_CURSO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>FK_REGRA_CURSO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<containerWithKeyObject>EECC13B4-0FB3-DFC0-F0CE-1CDAE0148CE0</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>989DDB70-87A9-FE8B-0748-3602E7E394C1</localFKIndex>
+<keyObject>2A441942-0CCC-271E-467E-43446B498038</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

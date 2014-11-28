@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2AC9F294-B56A-00EE-9284-9E5BBC8816AB" name="VERBO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>VERBO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="C0D1E708-D15D-9E5B-D675-575A1543DB85">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>VERBO</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VERBO" id="8E8F3C45-8104-F7C9-37C9-5BA0C99E9139">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>VERBO</sourceObjSchema>
+<sourceObjName>VERBO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FCD4D6B9-DF66-B4CB-CBFF-96796C21BC60" name="PK_VERBO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>PK_VERBO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C0D1E708-D15D-9E5B-D675-575A1543DB85"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="837E850B-56D6-68B7-96D2-FDD1A36C2199" name="UK_VERBO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>UK_VERBO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E8F3C45-8104-F7C9-37C9-5BA0C99E9139"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2D60D3CB-E64E-88E6-7B5F-EEC644B2C499" name="PK_VERBO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>PK_VERBO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C0D1E708-D15D-9E5B-D675-575A1543DB85"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="99E86421-83BC-E7CC-02ED-007CF6A02963" name="UK_VERBO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>UK_VERBO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E8F3C45-8104-F7C9-37C9-5BA0C99E9139"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

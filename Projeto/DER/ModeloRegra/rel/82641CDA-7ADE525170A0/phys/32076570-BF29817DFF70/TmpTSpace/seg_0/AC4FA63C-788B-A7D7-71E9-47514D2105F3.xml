@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TemporaryTablespaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TemporaryTablespaceOraclev10g" name="TEMP" directorySegmentName="seg_0" id="AC4FA63C-788B-A7D7-71E9-47514D2105F3">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjName>TEMP</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:19 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<uniformSize>1024</uniformSize>
+<fileType>SMALLFILE</fileType>
+<dataFiles>
+<DataFile class="oracle.dbtools.crest.model.design.storage.oracle.v10g.DataFileOraclev10g" name="TEMP.DBF" id="B030C468-DF91-DDFE-10DE-1032F5502C33">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjName>C:\ORACLE\ORACLEXE\APP\ORACLE\ORADATA\XE\TEMP.DBF</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<autoextend>ON</autoextend>
+<fileName>C:\ORACLE\ORACLEXE\APP\ORACLE\ORADATA\XE\TEMP.DBF</fileName>
+<nextBlockSize>640</nextBlockSize>
+<size>20480</size>
+</DataFile>
+</dataFiles>
+</TemporaryTablespaceOraclev10g>

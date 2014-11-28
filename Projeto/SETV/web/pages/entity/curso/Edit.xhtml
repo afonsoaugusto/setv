@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="CursoEditDlg" widgetVar="CursoEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{sETV_BUNDLE.EditCursoTitle}" closeOnEscape="true">
+
+            <h:form id="CursoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{cursoController.selected != null}">
+
+
+                        <h:outputLabel value="#{sETV_BUNDLE.EditCursoLabel_id}" for="id" />
+                        <h:panelGroup>
+                            <h:outputText id="id" value="#{cursoController.selected.id}" />
+                            <p:tooltip for="id" value="#{cursoController.getComponentMessages('id', sETV_BUNDLE.EditCursoHelpText_id)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{sETV_BUNDLE.EditCursoLabel_curso}" for="curso" />
+                        <h:panelGroup>
+                            <p:inputText id="curso" value="#{cursoController.selected.curso}" title="#{sETV_BUNDLE.EditCursoTitle_curso}" required="true" requiredMessage="#{sETV_BUNDLE.EditCursoRequiredMessage_curso}" size="200" maxlength="200"/>
+                            <p:tooltip for="curso" value="#{cursoController.getComponentMessages('curso', sETV_BUNDLE.EditCursoHelpText_curso)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cursoController.save}" value="#{sETV_BUNDLE.Save}" update="display,:CursoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('CursoEditDialog'));">
+                        <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{sETV_BUNDLE.Cancel}" onclick="PF('CursoEditDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

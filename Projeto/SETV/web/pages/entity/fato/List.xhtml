@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="FatoListForm">
+
+        <p:panel header="#{sETV_BUNDLE.ListFatoTitle}">
+            <p:contextMenu id="FatoDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{sETV_BUNDLE.Create}" onclick="document.getElementById('FatoListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{sETV_BUNDLE.View}" onclick="document.getElementById('FatoListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{sETV_BUNDLE.Edit}" onclick="document.getElementById('FatoListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{sETV_BUNDLE.Delete}" onclick="document.getElementById('FatoListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{sETV_BUNDLE.FatoMenuItem_habitoVerboId}" icon="ui-icon-search"  actionListener="#{fatoController.prepareHabitoVerboId}" update=":HabitoVerboViewForm" oncomplete="PF('HabitoVerboViewDialog').show()" disabled="#{empty fatoController.selected.habitoVerboId}"/>  
+                <p:menuitem value="#{sETV_BUNDLE.FatoMenuItem_alunoId}" icon="ui-icon-search"  actionListener="#{fatoController.prepareAlunoId}" update=":AlunoViewForm" oncomplete="PF('AlunoViewDialog').show()" disabled="#{empty fatoController.selected.alunoId}"/>  
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{fatoController.items}"
+                         var="item"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{fatoController.selected}">
+
+                <p:ajax event="rowSelect"   update=":FatoListForm:createButton :FatoListForm:viewButton :FatoListForm:editButton :FatoListForm:deleteButton :FatoListForm:FatoDataTableContextMenu" listener="#{fatoController.resetParents}"/>
+                <p:ajax event="rowUnselect" update=":FatoListForm:createButton :FatoListForm:viewButton :FatoListForm:editButton :FatoListForm:deleteButton :FatoListForm:FatoDataTableContextMenu" listener="#{fatoController.resetParents}"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('FatoListForm:viewButton').click();"/>
+
+<!--                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListFatoTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>-->
+
+                <p:column sortBy="#{item.alunoId.nome}" filterBy="#{item.alunoId.nome}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListFatoTitle_alunoId}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.alunoId.nome}"/>
+                </p:column>
+
+                <p:column sortBy="#{item.habitoVerboId.id}" filterBy="#{item.habitoVerboId.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListFatoTitle_habitoVerboId}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.habitoVerboId.habitoVerboDesc}"/>
+                </p:column>
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{sETV_BUNDLE.Create}" actionListener="#{fatoController.prepareCreate}" update=":FatoCreateForm" oncomplete="PF('FatoCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{sETV_BUNDLE.View}" update=":FatoViewForm" oncomplete="PF('FatoViewDialog').show()" disabled="#{empty fatoController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{sETV_BUNDLE.Edit}" update=":FatoEditForm" oncomplete="PF('FatoEditDialog').show()" disabled="#{empty fatoController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{sETV_BUNDLE.Delete}" actionListener="#{fatoController.delete}" update=":growl,datalist" disabled="#{empty fatoController.selected}">
+                <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/pages/generic/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

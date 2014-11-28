@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="SEQ_FATO_ID" directorySegmentName="seg_0" id="BDFE6995-CD3A-76F2-4276-A65470171AF3">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>SEQ_FATO_ID</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<incrementBy>1</incrementBy>
+<maxValue>9999999999999</maxValue>
+<minValue>1</minValue>
+<noCache>YES</noCache>
+<user>661CF81E-3910-E06C-C58A-4E9845C5EBDD</user>
+</SequenceOraclev10g>

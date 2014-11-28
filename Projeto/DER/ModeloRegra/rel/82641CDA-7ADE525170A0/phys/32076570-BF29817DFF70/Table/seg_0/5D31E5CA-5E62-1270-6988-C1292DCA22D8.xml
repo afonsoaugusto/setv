@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="HABITO" directorySegmentName="seg_0" id="5D31E5CA-5E62-1270-6988-C1292DCA22D8">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>D2581EFC-2B97-BAD6-7A88-E4B4F192D0A2</segment>
+<tableSpace>BB748CF0-F726-F362-AD32-C1E430B988EB</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="UK_HABITO" id="5249DD71-AD08-27BA-9F01-1B8112D8CD01">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<segment>0A379A7C-0F73-B966-0B70-740103903EC0</segment>
+<tableSpace>BB748CF0-F726-F362-AD32-C1E430B988EB</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_HABITO" id="CFBC9903-53E5-D140-7BDE-DEE2DA29DCE6">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<segment>0A379A7C-0F73-B966-0B70-740103903EC0</segment>
+<tableSpace>BB748CF0-F726-F362-AD32-C1E430B988EB</tableSpace>
+</IndexProxy>
+</indexProxies>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HABITO" id="0A98649C-AC45-4E0E-AB3F-75489EDE9B40">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="BEA165F9-9EB2-8A97-8115-209C170D1734">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_HABITO" id="D95EB4A5-0584-EADC-9B53-A90FDC91C314">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<segment>0A379A7C-0F73-B966-0B70-740103903EC0</segment>
+<tableSpace>BB748CF0-F726-F362-AD32-C1E430B988EB</tableSpace>
+<existingIndex>CFBC9903-53E5-D140-7BDE-DEE2DA29DCE6</existingIndex>
+<indexSegment>0A379A7C-0F73-B966-0B70-740103903EC0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UK_HABITO" id="A89A2487-2BD2-1075-B8FF-5CE520F4C15B">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<segment>0A379A7C-0F73-B966-0B70-740103903EC0</segment>
+<tableSpace>BB748CF0-F726-F362-AD32-C1E430B988EB</tableSpace>
+<existingIndex>5249DD71-AD08-27BA-9F01-1B8112D8CD01</existingIndex>
+<indexSegment>0A379A7C-0F73-B966-0B70-740103903EC0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

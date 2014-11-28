@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="AlunoListForm">
+
+        <p:panel header="#{sETV_BUNDLE.ListAlunoTitle}">
+            <p:contextMenu id="AlunoDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{sETV_BUNDLE.Create}" onclick="document.getElementById('AlunoListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{sETV_BUNDLE.View}" onclick="document.getElementById('AlunoListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{sETV_BUNDLE.Edit}" onclick="document.getElementById('AlunoListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{sETV_BUNDLE.Delete}" onclick="document.getElementById('AlunoListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{sETV_BUNDLE.AlunoMenuItem_fatoList}" icon="ui-icon-search"  action="#{alunoController.navigateFatoList}" disabled="#{empty alunoController.selected.fatoList}" ajax="false"/>  
+                <p:menuitem value="#{sETV_BUNDLE.AlunoMenuItem_cursoId}" icon="ui-icon-search"  actionListener="#{alunoController.prepareCursoId}" update=":CursoViewForm" oncomplete="PF('CursoViewDialog').show()" disabled="#{empty alunoController.selected.cursoId}"/>  
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{alunoController.items}"
+                         var="item"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single" 
+                         selection="#{alunoController.selected}">
+
+                <p:ajax event="rowSelect"   update=":AlunoListForm:createButton :AlunoListForm:viewButton :AlunoListForm:editButton :AlunoListForm:deleteButton :AlunoListForm:AlunoDataTableContextMenu" listener="#{alunoController.resetParents}"/>
+                <p:ajax event="rowUnselect" update=":AlunoListForm:createButton :AlunoListForm:viewButton :AlunoListForm:editButton :AlunoListForm:deleteButton :AlunoListForm:AlunoDataTableContextMenu" listener="#{alunoController.resetParents}"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('AlunoListForm:viewButton').click();"/>
+
+<!--                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListAlunoTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>-->
+
+
+                <p:column sortBy="#{item.cpf}" filterBy="#{item.cpf}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListAlunoTitle_cpf}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.cpf}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.nome}" filterBy="#{item.nome}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListAlunoTitle_nome}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.nome}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.anoNascimento}" filterBy="#{item.anoNascimento}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListAlunoTitle_anoNascimento}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.anoNascimento}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </p:column>
+
+
+                <p:column sortBy="#{item.cursoId.curso}" filterBy="#{item.cursoId.curso}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListAlunoTitle_cursoId}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.cursoId.curso}"/>
+                </p:column>
+                
+            </p:dataTable>
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{sETV_BUNDLE.Create}" actionListener="#{alunoController.prepareCreate}" update=":AlunoCreateForm" oncomplete="PF('AlunoCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{sETV_BUNDLE.View}" update=":AlunoViewForm" oncomplete="PF('AlunoViewDialog').show()" disabled="#{empty alunoController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{sETV_BUNDLE.Edit}" update=":AlunoEditForm" oncomplete="PF('AlunoEditDialog').show()" disabled="#{empty alunoController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{sETV_BUNDLE.Delete}" actionListener="#{alunoController.delete}" update=":growl,datalist" disabled="#{empty alunoController.selected}">
+                <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/pages/generic/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

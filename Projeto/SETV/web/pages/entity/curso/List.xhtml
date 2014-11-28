@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="CursoListForm">
+
+        <p:panel header="#{sETV_BUNDLE.ListCursoTitle}">
+            <p:contextMenu id="CursoDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{sETV_BUNDLE.Create}" onclick="document.getElementById('CursoListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{sETV_BUNDLE.View}" onclick="document.getElementById('CursoListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{sETV_BUNDLE.Edit}" onclick="document.getElementById('CursoListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{sETV_BUNDLE.Delete}" onclick="document.getElementById('CursoListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{sETV_BUNDLE.CursoMenuItem_alunoList}" icon="ui-icon-search"  action="#{cursoController.navigateAlunoList}" disabled="#{empty cursoController.selected.alunoList}" ajax="false"/>  
+                <p:menuitem value="#{sETV_BUNDLE.CursoMenuItem_regraList}" icon="ui-icon-search"  action="#{cursoController.navigateRegraList}" disabled="#{empty cursoController.selected.regraList}" ajax="false"/>  
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{cursoController.items}"
+                         var="item"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single" 
+                         selection="#{cursoController.selected}">
+
+                <p:ajax event="rowSelect"   update=":CursoListForm:createButton :CursoListForm:viewButton :CursoListForm:editButton :CursoListForm:deleteButton :CursoListForm:CursoDataTableContextMenu" listener="#{cursoController.resetParents}"/>
+                <p:ajax event="rowUnselect" update=":CursoListForm:createButton :CursoListForm:viewButton :CursoListForm:editButton :CursoListForm:deleteButton :CursoListForm:CursoDataTableContextMenu" listener="#{cursoController.resetParents}"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('CursoListForm:viewButton').click();"/>
+
+<!--                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListCursoTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>-->
+
+
+                <p:column sortBy="#{item.curso}" filterBy="#{item.curso}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListCursoTitle_curso}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.curso}"/>
+                </p:column>
+
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{sETV_BUNDLE.Create}" actionListener="#{cursoController.prepareCreate}" update=":CursoCreateForm" oncomplete="PF('CursoCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{sETV_BUNDLE.View}" update=":CursoViewForm" oncomplete="PF('CursoViewDialog').show()" disabled="#{empty cursoController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{sETV_BUNDLE.Edit}" update=":CursoEditForm" oncomplete="PF('CursoEditDialog').show()" disabled="#{empty cursoController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{sETV_BUNDLE.Delete}" actionListener="#{cursoController.delete}" update=":growl,datalist" disabled="#{empty cursoController.selected}">
+                <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/pages/generic/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

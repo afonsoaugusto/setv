@@ -1,0 +1,30 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSpaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableSpaceOraclev10g" name="SYSAUX" directorySegmentName="seg_0" id="551D5D92-78DE-C307-63F2-C310BD01548D">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjName>SYSAUX</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:19 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<dsInitialExtent>65536</dsInitialExtent>
+<dsMaxExtents>2147483645</dsMaxExtents>
+<emUniformSize>0</emUniformSize>
+<extentManagement>LOCAL</extentManagement>
+<minExtLen>65536</minExtLen>
+<dsCompression>NOCOMPRESS</dsCompression>
+<fileType>SMALLFILE</fileType>
+<dataFiles>
+<DataFile class="oracle.dbtools.crest.model.design.storage.oracle.v10g.DataFileOraclev10g" name="UNDOTBS1.DBF" id="AE92AEF1-B7E5-0853-8CDD-18117E5903D5">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjName>C:\ORACLE\ORACLEXE\APP\ORACLE\ORADATA\XE\UNDOTBS1.DBF</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<autoextend>ON</autoextend>
+<fileName>C:\ORACLE\ORACLEXE\APP\ORACLE\ORADATA\XE\UNDOTBS1.DBF</fileName>
+<nextBlockSize>10240</nextBlockSize>
+<size>665600</size>
+</DataFile>
+</dataFiles>
+</TableSpaceOraclev10g>

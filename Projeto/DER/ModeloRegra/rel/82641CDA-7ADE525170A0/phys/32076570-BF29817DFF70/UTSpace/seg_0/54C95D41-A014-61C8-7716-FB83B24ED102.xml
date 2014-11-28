@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UndoTablespaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UndoTablespaceOraclev10g" name="UNDOTBS1" directorySegmentName="seg_0" id="54C95D41-A014-61C8-7716-FB83B24ED102">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjName>UNDOTBS1</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:19 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<fileType>SMALLFILE</fileType>
+<dataFiles>
+<DataFile class="oracle.dbtools.crest.model.design.storage.oracle.v10g.DataFileOraclev10g" name="SYSAUX.DBF" id="9309AB8E-FDC0-8C3E-484F-E3D1F32B61D3">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjName>C:\ORACLE\ORACLEXE\APP\ORACLE\ORADATA\XE\SYSAUX.DBF</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<autoextend>ON</autoextend>
+<fileName>C:\ORACLE\ORACLEXE\APP\ORACLE\ORADATA\XE\SYSAUX.DBF</fileName>
+<nextBlockSize>5120</nextBlockSize>
+<size>25600</size>
+</DataFile>
+</dataFiles>
+</UndoTablespaceOraclev10g>

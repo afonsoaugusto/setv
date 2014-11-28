@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"      
+      xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition>
+        <p:dialog id="RegraViewDlg" widgetVar="RegraViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{sETV_BUNDLE.ViewRegraTitle}" closeOnEscape="true">
+            <h:form id="RegraViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{regraController.selected != null}">
+
+                        <h:outputText value="#{sETV_BUNDLE.ViewRegraLabel_id}"/>
+                        <h:outputText value="#{regraController.selected.id}" title="#{sETV_BUNDLE.ViewRegraTitle_id}"/>
+
+                        <h:outputText value="#{sETV_BUNDLE.ViewRegraLabel_negaHabito}"/>
+                        <h:outputText value="#{regraController.selected.negaHabito}" title="#{sETV_BUNDLE.ViewRegraTitle_negaHabito}"/>
+
+                        <h:outputText value="#{sETV_BUNDLE.ViewRegraLabel_regraPaiId}"/>
+                        <h:outputText value="#{regraController.selected.regraPaiId.id}"/>
+
+                        <h:outputText value="#{sETV_BUNDLE.ViewRegraLabel_habitoVerboId}"/>
+                        <h:outputText value="#{regraController.selected.habitoVerboId.habitoVerboDesc}"/>
+
+                        <h:outputText value="#{sETV_BUNDLE.ViewRegraLabel_cursoId}"/>
+                        <h:outputText value="#{regraController.selected.cursoId.curso}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{sETV_BUNDLE.Close}" onclick="PF('RegraViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="VerboListForm">
+
+        <p:panel header="#{sETV_BUNDLE.ListVerboTitle}">
+            <p:contextMenu id="VerboDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{sETV_BUNDLE.Create}" onclick="document.getElementById('VerboListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{sETV_BUNDLE.View}" onclick="document.getElementById('VerboListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{sETV_BUNDLE.Edit}" onclick="document.getElementById('VerboListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{sETV_BUNDLE.Delete}" onclick="document.getElementById('VerboListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{sETV_BUNDLE.VerboMenuItem_habitoVerboList}" icon="ui-icon-search"  action="#{verboController.navigateHabitoVerboList}" disabled="#{empty verboController.selected.habitoVerboList}" ajax="false"/>  
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{verboController.items}"
+                         var="item"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{verboController.selected}">
+
+                <p:ajax event="rowSelect"   update=":VerboListForm:createButton :VerboListForm:viewButton :VerboListForm:editButton :VerboListForm:deleteButton :VerboListForm:VerboDataTableContextMenu" listener="#{verboController.resetParents}"/>
+                <p:ajax event="rowUnselect" update=":VerboListForm:createButton :VerboListForm:viewButton :VerboListForm:editButton :VerboListForm:deleteButton :VerboListForm:VerboDataTableContextMenu" listener="#{verboController.resetParents}"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('VerboListForm:viewButton').click();"/>
+
+<!--                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListVerboTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>-->
+
+
+                <p:column sortBy="#{item.verbo}" filterBy="#{item.verbo}">
+                    <f:facet name="header">
+                        <h:outputText value="#{sETV_BUNDLE.ListVerboTitle_verbo}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.verbo}"/>
+                </p:column>
+
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{sETV_BUNDLE.Create}" actionListener="#{verboController.prepareCreate}" update=":VerboCreateForm" oncomplete="PF('VerboCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{sETV_BUNDLE.View}" update=":VerboViewForm" oncomplete="PF('VerboViewDialog').show()" disabled="#{empty verboController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{sETV_BUNDLE.Edit}" update=":VerboEditForm" oncomplete="PF('VerboEditDialog').show()" disabled="#{empty verboController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{sETV_BUNDLE.Delete}" actionListener="#{verboController.delete}" update=":growl,datalist" disabled="#{empty verboController.selected}">
+                <p:confirm header="#{sETV_BUNDLE.ConfirmationHeader}" message="#{sETV_BUNDLE.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/pages/generic/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

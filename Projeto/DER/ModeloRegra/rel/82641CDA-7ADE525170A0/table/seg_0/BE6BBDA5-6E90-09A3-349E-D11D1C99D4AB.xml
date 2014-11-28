@@ -1,0 +1,161 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BE6BBDA5-6E90-09A3-349E-D11D1C99D4AB" name="ALUNO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>ALUNO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="F483F3EA-2CE5-2685-D445-01F7EDCAD61A">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>ALUNO</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="5293ADE7-CD1B-9531-BE12-CE92FD777E6D">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>ALUNO</sourceObjSchema>
+<sourceObjName>CPF</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>11</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="EE798B42-7B24-3A1D-BDB7-28285D0BF1F3">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>ALUNO</sourceObjSchema>
+<sourceObjName>NOME</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ANO_NASCIMENTO" id="97DFF1D1-53EF-9CAC-92F4-3961B4044186">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>ALUNO</sourceObjSchema>
+<sourceObjName>ANO_NASCIMENTO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CURSO_ID" id="DD58C666-79C4-4E94-26DE-EBF9CD0B6C68">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>ALUNO</sourceObjSchema>
+<sourceObjName>CURSO_ID</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>F154249F-A6A6-67F0-201C-EA5EF655F3FD</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EBDA4411-3E0A-8FD1-6F1B-1ACC7B5D4DAF" referredColumn="F154249F-A6A6-67F0-201C-EA5EF655F3FD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="230C844D-2F20-D0BB-E862-7778F0A8FBB9" name="PK_ALUNO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>PK_ALUNO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F483F3EA-2CE5-2685-D445-01F7EDCAD61A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F9DE9A42-20E8-07A9-8A79-1DEEDD526A14" name="UK_ALUNO_NOME">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>UK_ALUNO_NOME</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5293ADE7-CD1B-9531-BE12-CE92FD777E6D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5854D330-AB07-129C-2BF1-09019812E67F" name="PK_ALUNO">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>PK_ALUNO</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F483F3EA-2CE5-2685-D445-01F7EDCAD61A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="000EF370-F1D6-08D5-302B-E06959884D1B" name="UK_ALUNO_NOME">
+<sourceConnName>Sys</sourceConnName>
+<sourceObjSchema>REGRA</sourceObjSchema>
+<sourceObjName>UK_ALUNO_NOME</sourceObjName>
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>CB7F226E-CB83-6C7A-1C6A-3E57A24B0F55</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5293ADE7-CD1B-9531-BE12-CE92FD777E6D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91AD974C-98C2-9C4E-17EB-CD04982D3F65" name="FK_ALUNO_CURSO">
+<createdBy>Afonso</createdBy>
+<createdTime>2014-11-20 23:16:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>ModeloRegra</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD58C666-79C4-4E94-26DE-EBF9CD0B6C68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

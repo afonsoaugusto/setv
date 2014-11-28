@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:form id="menuTheme">
+            <h:panelGrid columns="2" style="text-align: left">
+<!--                <h:outputText value="Default Switcher:" /> 
+                    <p:themeSwitcher style="width:165px" id="defaultSwitcher">
+                        <f:selectItem itemLabel="Choose Theme" itemValue="" />
+                        <f:selectItems value="#{themeSwitcherBean.themes}" />
+                    </p:themeSwitcher>-->
+                    
+<!--                    <h:outputText value="Stateful Switcher:" /> -->
+                    <p:themeSwitcher value="#{guestPreferences.theme}" style="width:165px" effect="fade" id="statefulSwitcher">
+                        <f:selectItem itemLabel="Choose Theme" itemValue="" />
+                        <f:selectItems value="#{themeSwitcherBean.themes}" />
+                        <p:ajax listener="#{themeSwitcherBean.saveTheme}" />
+                    </p:themeSwitcher>
+                    
+<!--                    <h:outputText value="Theme Preview:" /> 
+                    <p:themeSwitcher style="width:165px" effect="fade" var="t" id="themePreview">
+                        <f:selectItem itemLabel="Choose Theme" itemValue="" />
+                        <f:selectItems value="#{themeSwitcherBean.advancedThemes}" var="theme" itemLabel="#{theme.name}" itemValue="#{theme}"/>
+                        
+                        <p:column>
+                            <p:graphicImage value="/resources/images/themes/#{t.image}"/>
+                        </p:column>
+                        
+                        <p:column>
+                            #{t.name}
+                        </p:column>
+                    </p:themeSwitcher>-->
+            </h:panelGrid>
+        </h:form>
+    </ui:composition>
+
+</html>
